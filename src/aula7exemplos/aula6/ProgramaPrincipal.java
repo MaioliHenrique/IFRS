@@ -25,9 +25,14 @@ public class ProgramaPrincipal {
     private static final int NOVA_AREA = 1;
     private static final int ALTERAR_NOTA = 2;
     private static final int DAR_NOTA = 3;
-    private static final int NOVA_AREA = 4;
-    
-    
+    private static final int NOVA_AREA_PROFESSOR = 4;
+    ////////////////////MENU ENSINO ///////////////////////////////////////////
+    private static final int CADASTRAR_PROFESSOR_TO_CURSO = 1;
+    private static final int ALUNO_TO_CURSO = 2;
+    private static final int CADASTRAR_CURSO = 3;
+    private static final int CADASTRAR_PROFESSOR = 4;
+    ////////////////////DISCIPLINAS ///////////////////////////////////////////
+    private static final int TOTAL_DISCIPLINAS = 50;
     
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -167,7 +172,7 @@ public class ProgramaPrincipal {
         int opcao = menu(opcoes, br);
 
         switch (opcao) {
-            case 1:
+            case NOVA_AREA:
                 System.out.println("Qual a nova área, professor?");
                 String area = br.readLine();
 
@@ -177,7 +182,7 @@ public class ProgramaPrincipal {
                     System.err.println("O limite de áreas foi atingido para o professor com siape " + ensino.getProfessores()[posicao_professor].getSiape());
                 }
                 break;
-            case 2:
+            case ALTERAR_NOTA:
                 System.out.println("Qual a disciplina?");
                 String disciplina = br.readLine();
                 System.out.println("Qual o curso?");
@@ -206,14 +211,14 @@ public class ProgramaPrincipal {
                             + disciplina);
                 }
                 break;
-            case 3:
+            case DAR_NOTA:
                 System.out.println("Qual a disciplina?");
                 disciplina = br.readLine();
                 System.out.println("Qual o curso?");
                 curso = br.readLine();
                 dar_notas(ensino, disciplina, curso, br);
                 break;
-            case 4:
+            case NOVA_AREA_PROFESSOR:
                 System.out.println("Qual a nova área, professor?");
                 area = br.readLine();
 
@@ -343,7 +348,7 @@ public class ProgramaPrincipal {
         int opcao = menu(opcoes, br);
 
         switch (opcao) {
-            case 1:
+            case CADASTRAR_PROFESSOR_TO_CURSO:
                 System.out.println("Qual o curso?");
                 String nome_curso = br.readLine();
                 Curso c = encontra_curso(ensino, nome_curso);
@@ -366,13 +371,13 @@ public class ProgramaPrincipal {
                     System.err.println("O limite de disciplinas foi excedido.");
                 }
                 break;
-            case 2:
+            case ALUNO_TO_CURSO:
                 novo_aluno(ensino, alunos, br);
                 break;
-            case 3:
+            case CADASTRAR_CURSO:
                 cadastra_curso(ensino, br);
                 break;
-            case 4:
+            case CADASTRAR_PROFESSOR:
                 cadastra_professor(br, ensino);
                 break;
         }
@@ -399,7 +404,7 @@ public class ProgramaPrincipal {
     }
 
     private static Disciplina[] recebe_disciplinas(SetorEnsino ensino, BufferedReader br) throws IOException {
-        Disciplina[] disciplinas = new Disciplina[40];
+        Disciplina[] disciplinas = new Disciplina[TOTAL_DISCIPLINAS];
 
         System.out.println("Digite [1] para terminar e [2] para cadastrar disciplina");
         int op = Integer.parseInt(br.readLine());
