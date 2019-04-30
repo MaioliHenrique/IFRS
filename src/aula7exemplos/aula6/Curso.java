@@ -7,10 +7,7 @@ package aula7exemplos.aula6;
 
 import java.util.Objects;
 
-/**
- *
- * @author coelho
- */
+
 public class Curso {
 
     private String nome;

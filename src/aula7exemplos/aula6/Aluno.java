@@ -41,11 +41,11 @@ public class Aluno {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public Curso getCurso() {
+////////////////////////////////////////////////////
+    public Curso getCurso(){
         return curso;
     }
-
+////////////////////////////////////////////////////
     public void setCurso(Curso curso) {
         this.curso = curso;
     }
