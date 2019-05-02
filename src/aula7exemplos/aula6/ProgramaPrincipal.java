@@ -97,7 +97,6 @@ public class ProgramaPrincipal {
 
     private static void novo_aluno(SetorEnsino ensino, Aluno[] alunos, BufferedReader br) throws IOException {
         Aluno a = cadastra_aluno(ensino, br, alunos);
-
         cadastra_disciplinas_aluno(br, ensino, a);
     }
 
